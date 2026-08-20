@@ -1,0 +1,69 @@
+schema_version: 1
+repository:
+  name: kspacejet-ismrmrd-data
+  description: ISMRMRD-compatible MRI raw-data manifests and payloads for KSpaceJet.
+  raw_data_formats:
+    - .mrd
+    - .h5
+  checksum_algorithm: sha256
+
+datasets:
+  - id: zen-2d-radial-2025
+    path: datasets/zen-2d-radial-2025
+    status: imported
+    ismrmrd_type: radial_2d
+    source_record: https://zenodo.org/records/14617082
+    license: CC-BY-4.0
+    raw_data:
+      - radial2D_24spokes_golden_angle_with_traj.h5
+
+  - id: zen-2d-cartesian-2025
+    path: datasets/zen-2d-cartesian-2025
+    status: imported
+    ismrmrd_type: cartesian_2d
+    source_record: https://zenodo.org/records/15223816
+    license: CC-BY-4.0
+    raw_data:
+      - cart_t1.mrd
+      - cart_t1_msense_integrated.mrd
+      - cart_t1_partial_echo_partial_fourier.mrd
+
+  - id: ocmr-cardiac
+    path: datasets/ocmr-cardiac
+    status: imported_minimal_reconstruction_fixtures
+    ismrmrd_type: cardiac_cine
+    source_record: https://github.com/MRIOSU/OCMR/blob/master/README.md
+    usage_terms: https://www.ocmr.info/download/
+    raw_data_groups:
+      - fully-sampled
+      - undersampled
+    selected_raw_data:
+      - fully-sampled/fs_0001_1_5T.h5
+      - undersampled/us_0001_3T.h5
+
+  - id: zen-3d-grpe-2023
+    path: datasets/zen-3d-grpe-2023
+    status: imported
+    ismrmrd_type: grpe_3d
+    source_record: https://zenodo.org/records/7903282
+    license: CC-BY-4.0
+    raw_data:
+      - 3D_GRPE_no_motion.h5
+
+  - id: zen-multiecho-spiral-2026
+    path: datasets/zen-multiecho-spiral-2026
+    status: imported
+    ismrmrd_type: spiral_multiecho
+    source_record: https://zenodo.org/records/18749100
+    license: CC-BY-4.0
+    raw_data:
+      - spiral_tse_tr_4000_te_16_nechos_10_nspirals_160_with_traj.mrd
+
+  - id: zen-epi-2021
+    path: datasets/zen-epi-2021
+    status: imported
+    ismrmrd_type: epi
+    source_record: https://zenodo.org/records/4586829
+    license: CC-BY-4.0
+    raw_data:
+      - raw-data-GE-EPI.h5

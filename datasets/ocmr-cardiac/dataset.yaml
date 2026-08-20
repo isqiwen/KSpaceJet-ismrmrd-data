@@ -1,0 +1,107 @@
+schema_version: 1
+id: ocmr-cardiac
+title: "OCMR cardiac"
+status: "imported minimal reconstruction fixtures"
+
+source:
+  provider: "The Ohio State University / OCMR"
+  landing_page: "https://www.ocmr.info/"
+  terms_url: "https://www.ocmr.info/download/"
+  instructions_url: "https://www.ocmr.info/instructions/"
+  github_readme_url: "https://github.com/MRIOSU/OCMR/blob/master/README.md"
+  data_attributes_url: "https://ocmr.s3.amazonaws.com/ocmr_data_attributes.csv"
+  data_attributes_sha256: "ca51e56d3f8a4c44c2c5d646b2c1203922be1aa0a49371f059367cd3ecf27cf5"
+  full_archive_url: "https://ocmr.s3.amazonaws.com/data/ocmr_cine.tar.gz"
+  full_archive_size_bytes: 132382218240
+  full_archive_last_modified: "2023-08-21T15:06:59Z"
+  full_archive_s3_version_id: "YjzN0g6LDXWkYo9f.wPQ35BfQP40I.1c"
+  full_archive_etag: "1f7c2bbc3fc32926d51920b7d134e16a-7706"
+  object_base_url: "https://ocmr.s3.us-east-2.amazonaws.com/data/"
+  retrieved_on: "2026-08-20"
+  citation: "Chen et al., OCMR (v1.0)—Open-Access Multi-Coil k-Space Dataset for Cardiovascular Magnetic Resonance Imaging, arXiv:2008.03410 (2020)."
+  access_conditions: "Research and educational use only; acceptance of the official data sharing and usage agreement is required before download or processing."
+  selection_rationale: "One fully sampled and one prospectively undersampled cine series are retained because they exercise distinct reconstruction test paths; the remaining catalog entries are not mirrored locally."
+
+ismrmrd:
+  format: "ISMRMRD"
+  supported_file_extensions: [".mrd", ".h5"]
+  acquisition:
+    dimensionality: "varies by series"
+    type: "cardiac"
+    trajectory: "varies by series"
+  receiver_channels: null # Varies by selected fixture; see selected_fixture_headers.
+  encoded_matrix: null # Varies by selected fixture; see selected_fixture_headers.
+  reconstruction_matrix: null # Varies by selected fixture; see selected_fixture_headers.
+  field_of_view_mm: null # Varies by selected fixture; see selected_fixture_headers.
+  selected_fixture_headers:
+    - path: "fully-sampled/fs_0001_1_5T.h5"
+      sampling: "fully sampled"
+      scanner: "SIEMENS Avanto, 1.494 T"
+      receiver_channels: 15
+      encoded_matrix: [512, 208, 1]
+      reconstruction_matrix: [256, 208, 1]
+      field_of_view_mm: [720.0, 292.5, 8.0]
+      trajectory: "cartesian"
+      protocol_name: "trufi_cine_4ch_prop_trigger"
+    - path: "undersampled/us_0001_3T.h5"
+      sampling: "prospectively undersampled"
+      scanner: "SIEMENS Prisma_fit, 2.893620 T"
+      receiver_channels: 34
+      encoded_matrix: [384, 144, 1]
+      reconstruction_matrix: [192, 144, 1]
+      field_of_view_mm: [800.0, 300.0, 8.0]
+      trajectory: "cartesian"
+      protocol_name: "RT_Cine_SAX"
+
+algorithm_applicability:
+  candidates:
+    - "cardiac image reconstruction"
+    - "dynamic reconstruction and motion handling"
+    - "sampling-pattern comparison"
+  verification_note: "Confirm suitability against the raw acquisition headers."
+
+raw_data:
+  layout:
+    - path: "fully-sampled/"
+      purpose: "fully sampled cardiac cine HDF5 files"
+      source_prefix: "fs_"
+      catalog_file_count: 165
+      catalog_slice_count: 279
+      files:
+        - path: "fs_0001_1_5T.h5"
+          size_bytes: 194153168
+          source_url: "https://ocmr.s3.us-east-2.amazonaws.com/data/fs_0001_1_5T.h5"
+          source_last_modified: "2020-07-08T02:16:04Z"
+          source_s3_version_id: "PAUDHpOpmCSvGlc095_cqK5oHKIrAU1M"
+          source_etag: "1d5decdf0971211f4302294d1e69abb6-12"
+          source_catalog_row: "fs_0001_1_5T.h5,15avan,fs,asy,shr,lax,ind,noa,vol,,1"
+          local_sha256: "b2dd7cfd5bc0a75f08ac61c84a108d416b40695168dac803a2731a786cdd6a65"
+    - path: "undersampled/"
+      purpose: "prospectively undersampled cardiac cine HDF5 files"
+      source_prefix: "us_"
+      catalog_file_count: 212
+      catalog_slice_count: 842
+      files:
+        - path: "us_0001_3T.h5"
+          size_bytes: 90017048
+          source_url: "https://ocmr.s3.us-east-2.amazonaws.com/data/us_0001_3T.h5"
+          source_last_modified: "2020-07-08T15:27:14Z"
+          source_s3_version_id: "dgD2EJ4AA9XbV48HLqanHYoeZjT1KrZi"
+          source_etag: "72d5221f7df6af652802a49471a896e4-6"
+          source_catalog_row: "us_0001_3T.h5,30pris,pse,asy,shr,sax,ind,noa,vol,,1"
+          local_sha256: "729912c6b5fa4cba5caf09cc9f49741d5057540b1845a08e2deb73bc78e83ba1"
+  import_policy: "Import only selected source .h5 payloads using their original names and record each S3 object URL, VersionId, ETag, size, catalog attributes, and local SHA-256."
+  status: "two selected raw fixtures imported"
+
+integrity:
+  checksum_file: "SHA256SUMS"
+  status: "local SHA-256 generated for selected raw data"
+  source_catalog_sha256: "ca51e56d3f8a4c44c2c5d646b2c1203922be1aa0a49371f059367cd3ecf27cf5"
+  local_sha256_generated_on: "2026-08-20"
+  note: "S3 multipart ETags are provenance identifiers, not SHA-256 checksums."
+
+license:
+  file: "LICENSE.txt"
+  title: "OCMR Data Sharing and Usage Agreement"
+  source_url: "https://www.ocmr.info/download/"
+  redistribution_rights: "not granted by the source agreement"

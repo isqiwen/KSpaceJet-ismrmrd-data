@@ -1,0 +1,60 @@
+OCMR Data Sharing and Usage Agreement
+Source: https://www.ocmr.info/download/
+Retrieved: 2026-08-20
+
+The agreement below is copied from the official source. The source URL remains
+authoritative.
+
+Before you download, please read the data sharing and usage agreement below.
+If you agree to all the terms and conditions listed below, proceed to the
+download page.
+
+Before I download or process the OCMR dataset, I agree to the following terms
+and conditions.
+
+1. The Ohio State University (OSU) grants me non-exclusive, royalty-free
+   access to download and process this dataset.
+
+2. I will utilize this dataset only for research and educational purposes.
+
+3. I acknowledge that all datasets derived from the OCMR dataset are also
+   subject to these terms and conditions.
+
+4. I will neither sell this dataset or its components nor monetize from it.
+
+5. The OCMR dataset is collected from human subjects. I will not retrieve or
+   try to retrieve protected health information (PHI) of the human subjects in
+   this dataset.
+
+6. The OCMR dataset has been deidentified, but if I incidentally discover PHI
+   information, I will delete that specific data file and immediately inform
+   the principal investigator.
+
+7. I agree that all publications and presentations resulting from any use of
+   this dataset must cite OCMR using the citation formatting listed below.
+
+8. OSU specifically disclaims any warranties including, but not limited to,
+   the implied warranties of merchantability and fitness for a particular
+   purpose. The dataset and the encompassing software provided hereunder is on
+   an “as is” basis, and OSU has no obligation to provide maintenance, support,
+   updates, enhancements, or modifications.
+
+9. In no event shall OSU be liable to any party for direct, indirect, special,
+   incidental, or consequential damages arising out of the use of this dataset
+   and the accompanying software, even if OSU has been advised of the
+   possibility of such damage.
+
+10. In addition to the above-listed terms and conditions, I will also comply
+    with federal, state, local, and institutional policies and regulations.
+
+Citation Format
+---------------
+
+In manuscripts submitted for publication, acknowledge the use of OCMR by
+citing the following article:
+
+Chen et al., “OCMR (v1.0)—Open-Access Multi-Coil k-Space Dataset for
+Cardiovascular Magnetic Resonance Imaging,” arXiv:2008.03410 (2020).
+
+In presentations or published abstracts, you may refer to the OCMR dataset as
+“OCMR Dataset from www.ocmr.info”.

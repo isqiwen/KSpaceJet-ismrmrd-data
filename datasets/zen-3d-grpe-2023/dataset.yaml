@@ -1,0 +1,73 @@
+schema_version: 1
+id: zen-3d-grpe-2023
+title: "ZEN 3D GRPE (2023)"
+status: "imported"
+
+source:
+  provider: "Zenodo"
+  record_url: "https://zenodo.org/records/7903282"
+  api_record_url: "https://zenodo.org/api/records/7903282"
+  doi: "10.5281/zenodo.7903282"
+  concept_doi: "10.5281/zenodo.7903281"
+  title: "3D Golden radial phase encoding MR raw data"
+  publication_date: "2023-05-06"
+  version: "v1"
+  creators:
+    - name: "Christoph Kolbitsch"
+      affiliation: "Physikalisch-Technische Bundesanstalt (PTB)"
+      orcid: "0000-0002-4355-8368"
+  license_identifier: "CC-BY-4.0"
+  license_url: "https://creativecommons.org/licenses/by/4.0/legalcode"
+  retrieved_on: "2026-08-20"
+
+ismrmrd:
+  format: "ISMRMRD"
+  supported_file_extensions: [".mrd", ".h5"]
+  acquisition:
+    dimensionality: "3D"
+    type: "GRPE"
+    trajectory: "other (custom Golden radial phase encoding; as described by the source record)"
+  header_inspected: true
+  header_summary_source_file: "3D_GRPE_no_motion.h5"
+  receiver_channels: 4
+  encoded_matrix: [256, 144, 208]
+  reconstruction_matrix: [128, 128, 208]
+  field_of_view_mm: [384.0, 216.0, 312.0]
+  scanner:
+    vendor: "Siemens"
+    model: "Verio"
+    field_strength_t: 2.893620
+  sequence:
+    type: "Flash"
+    tr_ms: 138.300003
+    te_ms: 2.35
+    flip_angle_deg: 12.0
+
+algorithm_applicability:
+  candidates:
+    - "3D reconstruction"
+    - "gradient-recalled-echo reconstruction"
+    - "parallel imaging and compressed sensing"
+  verification_note: "Confirm suitability against the raw acquisition headers."
+
+raw_data:
+  naming_policy: "Original Zenodo filenames are retained; no format conversion was performed."
+  selection_policy: "Minimal reconstruction fixture: retain the static phantom because moving and static acquisitions use the same 3D GRPE reconstruction path."
+  files:
+    - path: "3D_GRPE_no_motion.h5"
+      variant: "static phantom"
+      size_bytes: 37874768
+      source_md5: "82aa7000fb6c1d42f138f81473aa671e"
+      source_url: "https://zenodo.org/api/records/7903282/files/3D_GRPE_no_motion.h5/content"
+      local_sha256: "fab6ebc7ed491fb8332baddf7b7f7b320d4a4ac6ae133bab087dd26b3920c9ca"
+
+integrity:
+  checksum_file: "SHA256SUMS"
+  checksum_format: "GNU sha256sum records with paths relative to this dataset directory"
+  source_md5_verified: true
+  local_sha256_generated_on: "2026-08-20"
+
+license:
+  file: "LICENSE.txt"
+  identifier: "CC-BY-4.0"
+  source_url: "https://creativecommons.org/licenses/by/4.0/legalcode"

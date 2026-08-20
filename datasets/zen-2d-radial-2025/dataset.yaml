@@ -1,0 +1,70 @@
+schema_version: 1
+id: zen-2d-radial-2025
+title: "ZEN 2D radial (2025)"
+status: "imported"
+
+source:
+  provider: "Zenodo"
+  record_url: "https://zenodo.org/records/14617082"
+  api_record_url: "https://zenodo.org/api/records/14617082"
+  doi: "10.5281/zenodo.14617082"
+  concept_doi: "10.5281/zenodo.14617081"
+  title: "2D Radial MR raw data and Pulseq sequences"
+  publication_date: "2025-01-08"
+  version: "v1"
+  creators:
+    - name: "Patrick Schuenke"
+      affiliation: "Physikalisch-Technische Bundesanstalt"
+      orcid: "0000-0002-3179-4830"
+  license_identifier: "CC-BY-4.0"
+  license_url: "https://creativecommons.org/licenses/by/4.0/legalcode"
+  retrieved_on: "2026-08-20"
+
+ismrmrd:
+  format: "ISMRMRD"
+  supported_file_extensions: [".mrd", ".h5"]
+  acquisition:
+    dimensionality: "2D"
+    type: "radial"
+    trajectory: "radial"
+  header_inspected: true
+  header_summary_source_file: "radial2D_24spokes_golden_angle_with_traj.h5"
+  receiver_channels: 16
+  encoded_matrix: [256, 256, 1]
+  reconstruction_matrix: [256, 256, 1]
+  field_of_view_mm: [256.0, 256.0, 8.0]
+  scanner:
+    vendor: "Siemens"
+    model: "MAGNETOM Cima.X"
+    field_strength_t: 2.89362001
+  sequence:
+    tr_ms: 10.0
+    te_ms: 2.82999992
+
+algorithm_applicability:
+  candidates:
+    - "non-Cartesian reconstruction"
+    - "radial trajectory correction"
+    - "parallel imaging and compressed sensing"
+  verification_note: "Confirm suitability against the raw acquisition headers."
+
+raw_data:
+  naming_policy: "Original Zenodo filenames are retained; no format conversion was performed."
+  selection_policy: "Minimal reconstruction fixture: retain one representative 2D radial acquisition because spoke-count variants use the same reconstruction code path."
+  files:
+    - path: "radial2D_24spokes_golden_angle_with_traj.h5"
+      size_bytes: 858688
+      source_md5: "9a82b5f9c6f27a3db64fd8f7be65cfa3"
+      source_url: "https://zenodo.org/api/records/14617082/files/radial2D_24spokes_golden_angle_with_traj.h5/content"
+      local_sha256: "3ac1213d73708c2c59b00cc3cd2bc3388d69bd622b1c1004fcb9f9be4ad60f59"
+
+integrity:
+  checksum_file: "SHA256SUMS"
+  checksum_format: "GNU sha256sum records with paths relative to this dataset directory"
+  source_md5_verified: true
+  local_sha256_generated_on: "2026-08-20"
+
+license:
+  file: "LICENSE.txt"
+  identifier: "CC-BY-4.0"
+  source_url: "https://creativecommons.org/licenses/by/4.0/legalcode"

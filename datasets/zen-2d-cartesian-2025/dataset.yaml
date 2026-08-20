@@ -1,0 +1,82 @@
+schema_version: 1
+id: zen-2d-cartesian-2025
+title: "ZEN 2D Cartesian (2025)"
+status: "imported"
+
+source:
+  provider: "Zenodo"
+  record_url: "https://zenodo.org/records/15223816"
+  api_record_url: "https://zenodo.org/api/records/15223816"
+  doi: "10.5281/zenodo.15223816"
+  concept_doi: "10.5281/zenodo.14173488"
+  title: "2D Cartesian MR raw data"
+  publication_date: "2025-04-15"
+  version: "v2"
+  creators:
+    - name: "Christoph Kolbitsch"
+      orcid: "0000-0002-4355-8368"
+  license_identifier: "CC-BY-4.0"
+  license_url: "https://creativecommons.org/licenses/by/4.0/legalcode"
+  retrieved_on: "2026-08-20"
+
+ismrmrd:
+  format: "ISMRMRD"
+  supported_file_extensions: [".mrd", ".h5"]
+  acquisition:
+    dimensionality: "2D"
+    type: "Cartesian"
+    trajectory: "Cartesian"
+  header_inspected: true
+  receiver_channels: 16
+  encoded_matrix: [512, 256, 1]
+  reconstruction_matrix: [256, 256, 1]
+  field_of_view_mm: [512.0, 256.0, 4.0]
+  scanner:
+    vendor: "Siemens"
+    model: "MAGNETOM Cima.X"
+    field_strength_t: 2.893620
+  sequence:
+    type: "Flash"
+    tr_ms: 250.0
+    te_ms: 2.92
+    ti_ms: 300.0
+
+algorithm_applicability:
+  candidates:
+    - "Cartesian reconstruction"
+    - "parallel imaging (SENSE/GRAPPA)"
+    - "partial-Fourier reconstruction"
+  verification_note: "Confirm suitability against the raw acquisition headers."
+
+raw_data:
+  naming_policy: "Original Zenodo filenames are retained; no format conversion was performed."
+  files:
+    - path: "cart_t1.mrd"
+      variant: "baseline Cartesian T1"
+      size_bytes: 50733968
+      source_md5: "45a3698b0c3b14de224172b7be46ac34"
+      source_url: "https://zenodo.org/api/records/15223816/files/cart_t1.mrd/content"
+      local_sha256: "e0c583dea4a5c52aa3a5fe1766bf6ab73c6fab13a65b4ac5598b593a5873f252"
+    - path: "cart_t1_msense_integrated.mrd"
+      variant: "T1 with integrated mSENSE; phase-encode acceleration 2; embedded calibration"
+      size_bytes: 43937608
+      source_md5: "4678ea99f7f9bcdd48127abef044dfe6"
+      source_url: "https://zenodo.org/api/records/15223816/files/cart_t1_msense_integrated.mrd/content"
+      local_sha256: "e6d88a645327398e12d14fdf4cd7a8e427bfb58d5e5af1ec24b2dd302b7c3063"
+    - path: "cart_t1_partial_echo_partial_fourier.mrd"
+      variant: "T1 partial echo / partial Fourier"
+      size_bytes: 46213248
+      source_md5: "6c069c1e804e25b3942bf10f6abde2db"
+      source_url: "https://zenodo.org/api/records/15223816/files/cart_t1_partial_echo_partial_fourier.mrd/content"
+      local_sha256: "a98d0ae02ab58cf3e43177e0ef56a6f219232fa8c300cb41cb263b76dd87f043"
+
+integrity:
+  checksum_file: "SHA256SUMS"
+  checksum_format: "GNU sha256sum records with paths relative to this dataset directory"
+  source_md5_verified: true
+  local_sha256_generated_on: "2026-08-20"
+
+license:
+  file: "LICENSE.txt"
+  identifier: "CC-BY-4.0"
+  source_url: "https://creativecommons.org/licenses/by/4.0/legalcode"

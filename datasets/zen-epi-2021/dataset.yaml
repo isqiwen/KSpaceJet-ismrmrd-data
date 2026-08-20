@@ -1,0 +1,86 @@
+schema_version: 1
+id: zen-epi-2021
+title: "ZEN EPI (2021)"
+status: "imported"
+
+source:
+  provider: "Zenodo"
+  record_url: "https://zenodo.org/records/4586829"
+  api_record_url: "https://zenodo.org/api/records/4586829"
+  doi: "10.5281/zenodo.4586829"
+  concept_doi: "10.5281/zenodo.4586828"
+  title: "Reconstruction of MRI EPI data from multiple vendors using open source tools"
+  publication_date: "2021-03-05"
+  version: "2020-12"
+  creators:
+    - name: "Vinai Roopchansingh"
+      affiliation: "Functional MRI Facility, National Institute of Mental Health, National Institutes of Health, U.S.A."
+      orcid: "0000-0003-3013-7895"
+    - name: "J. Andrew Derbyshire"
+      affiliation: "Functional MRI Facility, National Institute of Mental Health, National Institutes of Health, U.S.A."
+    - name: "David C. Hansen"
+      affiliation: "Gradient Software, Aarhus, Denmark"
+    - name: "Valéry Ozenne"
+      affiliation: "CNRS, University of Bordeaux, Bordeaux, France"
+    - name: "Peter A. Bandettini"
+      affiliation: "Section on Functional Imaging Methods and Functional MRI Facility, National Institute of Mental Health, National Institutes of Health, U.S.A."
+  license_identifier: "CC-BY-4.0"
+  license_url: "https://creativecommons.org/licenses/by/4.0/legalcode"
+  retrieved_on: "2026-08-20"
+
+ismrmrd:
+  format: "ISMRMRD"
+  supported_file_extensions: [".mrd", ".h5"]
+  acquisition:
+    dimensionality: "2D"
+    type: "EPI"
+    trajectory: "epi"
+    trajectory_identifier: "ConventionalEPI"
+  header_inspected: true
+  header_summary_source_file: "raw-data-GE-EPI.h5"
+  receiver_channels: 8
+  encoded_matrix: [96, 96, 1]
+  reconstruction_matrix: [96, 96, 1]
+  field_of_view_mm: [240.0, 240.0, 2.5]
+  scanner:
+    vendor: "GE MEDICAL SYSTEMS"
+    model: "Orchestra SDK"
+    field_strength_t: 3.0
+  sequence:
+    protocol_name: "VR prototyping template"
+    series_description: "EPI task or rest 2.5 mm"
+    tr_s: 2.0
+    te_s: [0.031, 0.0]
+    flip_angle_deg: 75.0
+    epi_echo_train_length: 100
+    navigator_lines: 4
+
+algorithm_applicability:
+  candidates:
+    - "Cartesian EPI Fourier reconstruction"
+    - "EPI phase correction and Nyquist-ghost correction"
+    - "multi-coil coil combination"
+    - "vendor-neutral ISMRMRD reconstruction validation"
+  verification_note: "This converted GE ISMRMRD fixture exercises an EPI-specific path not covered by the existing Cartesian, radial, GRPE, spiral, or cardiac fixtures."
+
+raw_data:
+  naming_policy: "Original Zenodo filename is retained; no local format conversion was performed."
+  selection_policy: "Minimal reconstruction fixture: retain only the source-provided converted GE EPI file. The Siemens converted counterpart is omitted because it exercises the same common EPI reconstruction flow."
+  files:
+    - path: "raw-data-GE-EPI.h5"
+      variant: "GE EPI converted to ISMRMRD by the source archive"
+      size_bytes: 252419384
+      source_md5: "491fe3c16acff9f1f1e6bc5abb6761ca"
+      source_url: "https://zenodo.org/api/records/4586829/files/raw-data-GE-EPI.h5/content"
+      local_sha256: "20685404ec212a46891c919f396631f5139207f2ae3d0fd05138d9bc3014b9dc"
+
+integrity:
+  checksum_file: "SHA256SUMS"
+  checksum_format: "GNU sha256sum records with paths relative to this dataset directory"
+  source_md5_verified: true
+  local_sha256_generated_on: "2026-08-20"
+
+license:
+  file: "LICENSE.txt"
+  identifier: "CC-BY-4.0"
+  source_url: "https://creativecommons.org/licenses/by/4.0/legalcode"
